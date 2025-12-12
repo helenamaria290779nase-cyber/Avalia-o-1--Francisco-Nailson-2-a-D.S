@@ -1,0 +1,57 @@
+import java.util.Scanner;
+
+public class Atividade1 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        double[] notas = new double[8];
+
+        System.out.println("----- Informe as 8 notas do aluno -----");
+
+        // Entrada das notas com validação
+        for (int i = 0; i < notas.length; i++) {
+            while (true) {
+                System.out.print("Informe a " + (i + 1) + "ª nota (0 a 10): ");
+                double n = sc.nextDouble();
+
+                if (n >= 0 && n <= 10) {
+                    notas[i] = n;
+                    break;
+                } else {
+                    System.out.println("⚠ Valor inválido! Digite uma nota entre 0 e 10.");
+                }
+            }
+        }
+
+        // Cálculo automático dos bimestres
+        double[] mb = new double[4];
+        for (int i = 0; i < 4; i++) {
+            mb[i] = (notas[i * 2] + notas[i * 2 + 1]) / 2;
+        }
+
+        // Cálculo dos semestres
+        double ms1 = (mb[0] + mb[1]) / 2;
+        double ms2 = (mb[2] + mb[3]) / 2;
+
+        // Média final
+        double mediaFinal = (ms1 + ms2) / 2;
+
+        // Saída
+        System.out.println("\n----------- RESULTADOS -----------");
+
+        System.out.printf("1º Bimestre: %.2f\n", mb[0]);
+        System.out.printf("2º Bimestre: %.2f\n", mb[1]);
+        System.out.printf("1º Semestre: %.2f\n", ms1);
+
+        System.out.println("\n-------------------------------");
+
+        System.out.printf("3º Bimestre: %.2f\n", mb[2]);
+        System.out.printf("4º Bimestre: %.2f\n", mb[3]);
+        System.out.printf("2º Semestre: %.2f\n", ms2);
+
+        System.out.println("\n-------------------------------");
+
+        System.out.printf("Média Final: %.2f\n", mediaFinal);
+    }
+}
