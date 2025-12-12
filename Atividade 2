@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Atividade2 {
+
+    public static void main(String[] args) {
+
+        Scanner sc = new Scanner(System.in);
+        String resposta;
+        double celsius, fahrenheit, kelvin;
+
+        do {
+            System.out.println("\n==============================");
+            System.out.println("   CONVERSOR DE TEMPERATURA   ");
+            System.out.println("==============================");
+
+            System.out.print("Informe a temperatura em Celsius: ");
+            celsius = sc.nextDouble();
+
+            // Cálculos
+            fahrenheit = (celsius * 9 / 5) + 32;
+            kelvin = celsius + 273.15;
+
+            // Resultados
+            System.out.println("\n----------- RESULTADOS -----------");
+            System.out.printf("Celsius:     %.2f ºC\n", celsius);
+            System.out.printf("Fahrenheit:  %.2f ºF\n", fahrenheit);
+            System.out.printf("Kelvin:      %.2f K\n", kelvin);
+            System.out.println("----------------------------------");
+
+            // Repetição
+            System.out.print("\nDeseja realizar outra conversão (S/N)? ");
+            resposta = sc.next().trim().toUpperCase();
+
+        } while (resposta.equals("S"));
+
+        System.out.println("\nPrograma finalizado. Obrigado!");
+    }
+}
